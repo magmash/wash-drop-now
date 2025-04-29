@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { X, User, Home, Calendar, CreditCard, HelpCircle, Package, History } from 'lucide-react';
@@ -14,7 +13,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 md:hidden">
-      <div className="fixed inset-y-0 right-0 max-w-[80%] w-80 bg-white shadow-xl animate-fade-in">
+      <div className="fixed inset-y-0 right-0 max-w-[80%] w-80 bg-white shadow-xl animate-fade-in pb-16">
         <div className="flex justify-between items-center p-4 border-b">
           <div className="flex items-center">
             <img 
@@ -97,7 +96,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           </Link>
         </nav>
         
-        <div className="absolute bottom-8 inset-x-0 px-4">
+        <div className="absolute bottom-20 inset-x-0 px-4">
           <Link to="/booking" onClick={onClose}>
             <Button className="w-full">Book Laundry Pickup</Button>
           </Link>
