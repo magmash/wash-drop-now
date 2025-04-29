@@ -13,7 +13,11 @@ const Header = () => {
       <div className="page-container flex justify-between items-center h-16">
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
-            <span className="font-bold text-xl text-primary">SwiftWash</span>
+            <img 
+              src="/lovable-uploads/b0b1b295-ef34-4ebd-a664-a6f5fee9513f.png" 
+              alt="SwiftWash Logo" 
+              className="h-8" 
+            />
           </Link>
         </div>
         

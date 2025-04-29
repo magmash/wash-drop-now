@@ -16,7 +16,13 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 md:hidden">
       <div className="fixed inset-y-0 right-0 max-w-[80%] w-80 bg-white shadow-xl animate-fade-in">
         <div className="flex justify-between items-center p-4 border-b">
-          <span className="font-bold text-xl text-primary">SwiftWash</span>
+          <div className="flex items-center">
+            <img 
+              src="/lovable-uploads/b0b1b295-ef34-4ebd-a664-a6f5fee9513f.png" 
+              alt="SwiftWash Logo" 
+              className="h-6" 
+            />
+          </div>
           <button 
             onClick={onClose}
             className="text-gray-500 hover:text-gray-700"
