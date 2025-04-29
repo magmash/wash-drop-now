@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { WashingMachine, Shirt, SprayBottle, Bed } from 'lucide-react';
+import { WashingMachine, Shirt, Bed } from 'lucide-react';
 
 const services = [
   {
@@ -27,7 +27,7 @@ const services = [
     description: 'For delicate items and fabrics',
     priceFrom: 'From €1.79/kg',
     image: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80&w=300',
-    icon: SprayBottle,
+    icon: Bed, // Changed from SprayBottle to Bed as SprayBottle doesn't exist in lucide-react
   }
 ];
 

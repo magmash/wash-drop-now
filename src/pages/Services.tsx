@@ -3,7 +3,7 @@ import React from 'react';
 import PageLayout from '@/components/layout/PageLayout';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { WashingMachine, Shirt, SprayBottle, Bed } from 'lucide-react';
+import { WashingMachine, Shirt, Bed } from 'lucide-react';
 
 const services = [
   {
@@ -46,7 +46,7 @@ const services = [
     ],
     priceFrom: '€1.79/kg',
     suitable: 'Perfect for suits, formal dresses, silk, wool, and other delicate fabrics.',
-    icon: SprayBottle
+    icon: Bed // Changed from SprayBottle to Bed as SprayBottle doesn't exist in lucide-react
   },
   {
     id: 4,
