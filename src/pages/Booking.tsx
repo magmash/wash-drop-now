@@ -174,7 +174,12 @@ const BookingPage = () => {
                 </div>
                 
                 <div className="flex justify-end mt-8">
-                  <Button type="button" onClick={() => document.querySelector('[data-value="preferences"]')?.click()}>
+                  <Button type="button" onClick={() => {
+                    const preferencesTab = document.querySelector('[data-value="preferences"]');
+                    if (preferencesTab && preferencesTab instanceof HTMLElement) {
+                      preferencesTab.click();
+                    }
+                  }}>
                     Next: Preferences
                   </Button>
                 </div>
@@ -268,7 +273,12 @@ const BookingPage = () => {
                   <Button 
                     type="button" 
                     variant="outline" 
-                    onClick={() => document.querySelector('[data-value="pickup"]')?.click()}
+                    onClick={() => {
+                      const pickupTab = document.querySelector('[data-value="pickup"]');
+                      if (pickupTab && pickupTab instanceof HTMLElement) {
+                        pickupTab.click();
+                      }
+                    }}
                   >
                     Back to Pickup Details
                   </Button>
