@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import PageLayout from '@/components/layout/PageLayout';
 import { Button } from '@/components/ui/button';
@@ -79,7 +78,7 @@ const BookingPage = () => {
                       <Label htmlFor="regular" className="flex flex-col cursor-pointer">
                         <span className="font-medium">Regular Wash & Fold</span>
                         <span className="text-sm text-gray-500">24-hour turnaround</span>
-                        <span className="text-primary font-medium mt-1">$1.99/lb</span>
+                        <span className="text-primary font-medium mt-1">€1.99/kg</span>
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2 border rounded-md p-4 cursor-pointer hover:bg-gray-50">
@@ -87,7 +86,7 @@ const BookingPage = () => {
                       <Label htmlFor="express" className="flex flex-col cursor-pointer">
                         <span className="font-medium">Express Service</span>
                         <span className="text-sm text-gray-500">Same-day when available</span>
-                        <span className="text-primary font-medium mt-1">$2.99/lb</span>
+                        <span className="text-primary font-medium mt-1">€2.99/kg</span>
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2 border rounded-md p-4 cursor-pointer hover:bg-gray-50">
@@ -95,7 +94,7 @@ const BookingPage = () => {
                       <Label htmlFor="airbnb" className="flex flex-col cursor-pointer">
                         <span className="font-medium">Airbnb Host Package</span>
                         <span className="text-sm text-gray-500">Ideal for linens & towels</span>
-                        <span className="text-primary font-medium mt-1">$1.79/lb</span>
+                        <span className="text-primary font-medium mt-1">€1.79/kg</span>
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2 border rounded-md p-4 cursor-pointer hover:bg-gray-50">
@@ -103,7 +102,7 @@ const BookingPage = () => {
                       <Label htmlFor="business" className="flex flex-col cursor-pointer">
                         <span className="font-medium">Business Traveler</span>
                         <span className="text-sm text-gray-500">Special care for business attire</span>
-                        <span className="text-primary font-medium mt-1">$2.49/lb</span>
+                        <span className="text-primary font-medium mt-1">€2.49/kg</span>
                       </Label>
                     </div>
                   </RadioGroup>
@@ -117,21 +116,21 @@ const BookingPage = () => {
                       <RadioGroupItem value="5-10" id="small" />
                       <Label htmlFor="small" className="flex flex-col cursor-pointer">
                         <span className="font-medium">Small Load</span>
-                        <span className="text-sm text-gray-500">5-10 lbs</span>
+                        <span className="text-sm text-gray-500">5-10 kg</span>
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2 border rounded-md p-4 cursor-pointer hover:bg-gray-50">
                       <RadioGroupItem value="10-15" id="medium" />
                       <Label htmlFor="medium" className="flex flex-col cursor-pointer">
                         <span className="font-medium">Medium Load</span>
-                        <span className="text-sm text-gray-500">10-15 lbs</span>
+                        <span className="text-sm text-gray-500">10-15 kg</span>
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2 border rounded-md p-4 cursor-pointer hover:bg-gray-50">
                       <RadioGroupItem value="15+" id="large" />
                       <Label htmlFor="large" className="flex flex-col cursor-pointer">
                         <span className="font-medium">Large Load</span>
-                        <span className="text-sm text-gray-500">15+ lbs</span>
+                        <span className="text-sm text-gray-500">15+ kg</span>
                       </Label>
                     </div>
                   </RadioGroup>
@@ -197,7 +196,7 @@ const BookingPage = () => {
                         checked={preferenceHangDry}
                         onCheckedChange={(checked) => setPreferenceHangDry(checked as boolean)}
                       />
-                      <Label htmlFor="hang-dry" className="cursor-pointer">Hang dry delicate items (+$0.50/lb)</Label>
+                      <Label htmlFor="hang-dry" className="cursor-pointer">Hang dry delicate items (+€0.50/kg)</Label>
                     </div>
                     <div className="flex items-center space-x-2">
                       <Checkbox 
