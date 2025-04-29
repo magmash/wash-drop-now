@@ -1,30 +1,29 @@
-
 import React from 'react';
 import PageLayout from '@/components/layout/PageLayout';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
 const regularItems = [
-  { item: 'Regular Laundry (Wash & Fold)', price: '$1.99/lb', note: 'Minimum 10 lbs' },
-  { item: 'Express Service (24hr)', price: '$2.99/lb', note: 'Minimum 8 lbs' },
-  { item: 'Airbnb Host Package', price: '$1.79/lb', note: 'Minimum 15 lbs' },
-  { item: 'Business Traveler Package', price: '$2.49/lb', note: 'Minimum 5 lbs' },
-  { item: 'Hang Dry Option', price: '+$0.50/lb', note: 'For delicate items' },
+  { item: 'Regular Laundry (Wash & Fold)', price: '€1.99/kg', note: 'Minimum 5 kg' },
+  { item: 'Express Service (24hr)', price: '€2.99/kg', note: 'Minimum 4 kg' },
+  { item: 'Airbnb Host Package', price: '€1.79/kg', note: 'Minimum 7 kg' },
+  { item: 'Business Traveler Package', price: '€2.49/kg', note: 'Minimum 2.5 kg' },
+  { item: 'Hang Dry Option', price: '+€0.50/kg', note: 'For delicate items' },
   { item: 'Eco-Friendly Detergent', price: 'Free', note: '' },
 ];
 
 const specialItems = [
-  { item: 'Comforters (Queen/King)', price: '$24.99 - $29.99', note: 'Per item' },
-  { item: 'Blankets', price: '$14.99 - $19.99', note: 'Per item' },
-  { item: 'Rugs (Small/Medium)', price: '$9.99 - $19.99', note: 'Per item' },
-  { item: 'Pillows', price: '$8.99', note: 'Per item' },
+  { item: 'Comforters (Queen/King)', price: '€24.99 - €29.99', note: 'Per item' },
+  { item: 'Blankets', price: '€14.99 - €19.99', note: 'Per item' },
+  { item: 'Rugs (Small/Medium)', price: '€9.99 - €19.99', note: 'Per item' },
+  { item: 'Pillows', price: '€8.99', note: 'Per item' },
 ];
 
 const additionalFees = [
-  { item: 'Pickup & Delivery', price: 'Free', note: 'For orders over $30' },
-  { item: 'Pickup & Delivery (Small Orders)', price: '$4.99', note: 'For orders under $30' },
+  { item: 'Pickup & Delivery', price: 'Free', note: 'For orders over €30' },
+  { item: 'Pickup & Delivery (Small Orders)', price: '€4.99', note: 'For orders under €30' },
   { item: 'Rush Service (Same-Day)', price: '+50%', note: 'When available' },
-  { item: 'Stain Treatment', price: '$2.99', note: 'Per stain' },
+  { item: 'Stain Treatment', price: '€2.99', note: 'Per stain' },
 ];
 
 const Pricing = () => {

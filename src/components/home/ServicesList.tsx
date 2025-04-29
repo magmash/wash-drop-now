@@ -8,21 +8,21 @@ const services = [
     id: 1,
     name: 'Regular Wash & Fold',
     description: 'Your everyday laundry cleaned, dried, and neatly folded.',
-    priceFrom: 'From $1.99/lb',
+    priceFrom: 'From €1.99/kg',
     image: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80&w=300',
   },
   {
     id: 2,
     name: 'Express Service',
     description: 'Same-day service for urgent laundry needs.',
-    priceFrom: 'From $2.99/lb',
+    priceFrom: 'From €2.99/kg',
     image: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80&w=300',
   },
   {
     id: 3,
     name: 'Airbnb Host Package',
     description: 'Bulk service designed for hosts with multiple properties.',
-    priceFrom: 'From $1.79/lb',
+    priceFrom: 'From €1.79/kg',
     image: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80&w=300',
   }
 ];

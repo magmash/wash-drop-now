@@ -66,10 +66,10 @@ const laundryCategories: LaundryCategory[] = [
     name: 'Wash & Fold',
     description: 'Everyday laundry washed, dried, and neatly folded',
     items: [
-      { id: 'regular-laundry', name: 'Regular Laundry', price: 1.99, unit: '/lb', description: 'Everyday clothing items' },
-      { id: 'delicate-laundry', name: 'Delicate Laundry', price: 2.49, unit: '/lb', description: 'Gentle cycle for delicate fabrics' },
-      { id: 'bedding', name: 'Bedding & Linens', price: 1.89, unit: '/lb', description: 'Sheets, pillowcases, and towels' },
-      { id: 'bulk-discount', name: 'Bulk Discount (10+ lb)', price: 1.79, unit: '/lb', description: 'Discounted rate for larger loads' },
+      { id: 'regular-laundry', name: 'Regular Laundry', price: 1.99, unit: '/kg', description: 'Everyday clothing items' },
+      { id: 'delicate-laundry', name: 'Delicate Laundry', price: 2.49, unit: '/kg', description: 'Gentle cycle for delicate fabrics' },
+      { id: 'bedding', name: 'Bedding & Linens', price: 1.89, unit: '/kg', description: 'Sheets, pillowcases, and towels' },
+      { id: 'bulk-discount', name: 'Bulk Discount (5+ kg)', price: 1.79, unit: '/kg', description: 'Discounted rate for larger loads' },
       { id: 'comforter-small', name: 'Comforter (Twin/Full)', price: 19.99, unit: '/item' },
       { id: 'comforter-large', name: 'Comforter (Queen/King)', price: 24.99, unit: '/item' },
       { id: 'duvet-cover', name: 'Duvet Cover', price: 14.99, unit: '/item' },
@@ -82,9 +82,9 @@ const laundryCategories: LaundryCategory[] = [
     items: [
       { id: 'curtains-s', name: 'Curtains (Small Panel)', price: 8.99, unit: '/panel' },
       { id: 'curtains-l', name: 'Curtains (Large Panel)', price: 12.99, unit: '/panel' },
-      { id: 'rug-small', name: 'Rug (Small <4×6)', price: 19.99, unit: '/item' },
-      { id: 'rug-medium', name: 'Rug (Medium 5×8)', price: 29.99, unit: '/item' },
-      { id: 'rug-large', name: 'Rug (Large >9×12)', price: 49.99, unit: '/item' },
+      { id: 'rug-small', name: 'Rug (Small <120×180 cm)', price: 19.99, unit: '/item' },
+      { id: 'rug-medium', name: 'Rug (Medium 150×240 cm)', price: 29.99, unit: '/item' },
+      { id: 'rug-large', name: 'Rug (Large >270×360 cm)', price: 49.99, unit: '/item' },
       { id: 'pillow', name: 'Pillow', price: 9.99, unit: '/item' },
       { id: 'cushion-cover', name: 'Cushion Cover', price: 4.99, unit: '/item' },
       { id: 'blanket-s', name: 'Blanket (Small/Throw)', price: 12.99, unit: '/item' },
@@ -253,7 +253,7 @@ const PriceEstimatorTool = () => {
                         <div className="flex items-center justify-between p-4">
                           <div>
                             <h3 className="font-medium text-sm md:text-base">{item.name}</h3>
-                            <p className="text-primary font-semibold">${item.price.toFixed(2)}{item.unit}</p>
+                            <p className="text-primary font-semibold">€{item.price.toFixed(2)}{item.unit}</p>
                             {item.description && (
                               <p className="text-xs text-muted-foreground mt-1">{item.description}</p>
                             )}
@@ -323,7 +323,7 @@ const PriceEstimatorTool = () => {
                               <span>{itemDetails.name}</span>
                               <span className="text-muted-foreground ml-1">×{quantity}</span>
                             </div>
-                            <span className="font-medium">${itemTotal.toFixed(2)}</span>
+                            <span className="font-medium">€{itemTotal.toFixed(2)}</span>
                           </div>
                         );
                       })}
@@ -332,7 +332,7 @@ const PriceEstimatorTool = () => {
                     <div className="pt-4 border-t">
                       <div className="flex justify-between font-semibold">
                         <span>Total ({totalItems} {totalItems === 1 ? 'item' : 'items'})</span>
-                        <span className="text-primary">${totalPrice.toFixed(2)}</span>
+                        <span className="text-primary">€{totalPrice.toFixed(2)}</span>
                       </div>
                     </div>
                     
@@ -360,7 +360,7 @@ const PriceEstimatorTool = () => {
         <div className="flex items-center justify-between max-w-screen-lg mx-auto">
           <div>
             <p className="text-sm text-muted-foreground">Total ({totalItems} {totalItems === 1 ? 'item' : 'items'})</p>
-            <p className="text-xl font-bold text-primary">${totalPrice.toFixed(2)}</p>
+            <p className="text-xl font-bold text-primary">€{totalPrice.toFixed(2)}</p>
           </div>
           <Link to="/booking" onClick={saveEstimate}>
             <Button>
