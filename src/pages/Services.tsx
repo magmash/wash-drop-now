@@ -3,7 +3,7 @@ import React from 'react';
 import PageLayout from '@/components/layout/PageLayout';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Washing, ShirtIron, Spraybottle, Bed } from 'lucide-react';
+import { WashingMachine, Shirt, SprayBottle, Bed } from 'lucide-react';
 
 const services = [
   {
@@ -18,7 +18,7 @@ const services = [
     ],
     priceFrom: '€1.99/kg',
     suitable: 'Perfect for regular household laundry and daily wear items.',
-    icon: Washing
+    icon: WashingMachine
   },
   {
     id: 2,
@@ -32,7 +32,7 @@ const services = [
     ],
     priceFrom: '€2.99/kg',
     suitable: 'Ideal for work attire, formal wear, and household items requiring a crisp finish.',
-    icon: ShirtIron
+    icon: Shirt
   },
   {
     id: 3,
@@ -46,7 +46,7 @@ const services = [
     ],
     priceFrom: '€1.79/kg',
     suitable: 'Perfect for suits, formal dresses, silk, wool, and other delicate fabrics.',
-    icon: Spraybottle
+    icon: SprayBottle
   },
   {
     id: 4,
@@ -60,7 +60,7 @@ const services = [
     ],
     priceFrom: '€2.49/kg',
     suitable: 'Ideal for pre-washed garments requiring professional finishing.',
-    icon: ShirtIron
+    icon: Shirt
   },
   {
     id: 5,
