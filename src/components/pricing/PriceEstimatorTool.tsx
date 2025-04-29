@@ -405,7 +405,7 @@ const PriceEstimatorTool = () => {
             </TabsList>
             
             {laundryCategories.map(category => <TabsContent key={category.id} value={category.id}>
-                <div className="space-y-8 my-0">
+                <div className="space-y-4 my-0">
                   <div className="flex items-center justify-between">
                     <h2 className="text-xl font-semibold">{category.name}</h2>
                   </div>
