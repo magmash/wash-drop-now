@@ -1,11 +1,16 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Menu, User } from "lucide-react";
 import MobileMenu from './MobileMenu';
+import { useIsMobile } from '@/hooks/use-mobile';
+
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  return <header className="sticky top-0 z-40 bg-white shadow-sm">
+  const isMobile = useIsMobile();
+  
+  return <header className={`${isMobile ? 'bg-white shadow-sm' : 'sticky top-0 z-40 bg-white shadow-sm'}`}>
       <div className="page-container flex justify-between items-center h-16">
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
