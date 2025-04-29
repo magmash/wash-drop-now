@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     question: "How much does it cost?",
-    answer: "Our regular wash & fold service starts at $1.99 per pound with a minimum of 10 pounds. Express service is available at $2.99 per pound. Special packages are available for Airbnb hosts and business travelers. View our full pricing page for details."
+    answer: "Our regular wash & fold service starts at €1.99 per kg with a minimum of 5 kg. Express service is available at €2.99 per kg. Special packages are available for Airbnb hosts and business travelers. View our full pricing page for details."
   },
   {
     question: "How is my laundry weighed?",
@@ -40,7 +40,7 @@ const faqs = [
   },
   {
     question: "Is there a minimum order?",
-    answer: "Yes, our minimum order is 10 pounds for regular service and 8 pounds for express service. Most household laundry easily meets these minimums."
+    answer: "Yes, our minimum order is 5 kg for regular service and 4 kg for express service. Most household laundry easily meets these minimums."
   },
   {
     question: "How do I pay for the service?",

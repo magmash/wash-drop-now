@@ -15,7 +15,7 @@ const services = [
       'Neatly folded and packaged',
       '24-hour turnaround time',
     ],
-    priceFrom: '$1.99/lb',
+    priceFrom: '€1.99/kg',
     suitable: 'Perfect for regular household laundry and daily wear items.'
   },
   {
@@ -28,7 +28,7 @@ const services = [
       'Premium care with quality detergents',
       'Delivered in eco-friendly packaging',
     ],
-    priceFrom: '$2.99/lb',
+    priceFrom: '€2.99/kg',
     suitable: 'Ideal for urgent needs, last-minute plans, or travelers.'
   },
   {
@@ -41,7 +41,7 @@ const services = [
       'Scheduling that works with guest changeovers',
       'Optional inventory management',
     ],
-    priceFrom: '$1.79/lb',
+    priceFrom: '€1.79/kg',
     suitable: 'Perfect for hosts managing one or multiple properties.'
   },
   {
@@ -54,7 +54,7 @@ const services = [
       'Light pressing included',
       'Hotel pickup and delivery',
     ],
-    priceFrom: '$2.49/lb',
+    priceFrom: '€2.49/kg',
     suitable: 'Ideal for business travelers and professionals on the go.'
   }
 ];
