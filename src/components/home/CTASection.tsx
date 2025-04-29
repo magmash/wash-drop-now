@@ -20,9 +20,9 @@ const CTASection = () => {
                 Book Your First Pickup
               </Button>
             </Link>
-            <Link to="/services">
+            <Link to="/laundry-services">
               <Button variant="outline" className="w-full sm:w-auto text-base">
-                Explore Services
+                Find Laundry Services
               </Button>
             </Link>
           </div>
