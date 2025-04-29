@@ -1,4 +1,6 @@
+
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import PageLayout from '@/components/layout/PageLayout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -7,6 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Checkbox } from '@/components/ui/checkbox';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Calendar } from '@/components/ui/calendar';
+import { CheckCircle, Home, PackageOpen } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const BookingPage = () => {
@@ -18,6 +21,8 @@ const BookingPage = () => {
   const [preferenceHangDry, setPreferenceHangDry] = useState<boolean>(false);
   const [preferenceFragranceFree, setPreferenceFragranceFree] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<string>('pickup');
+  const [bookingSuccess, setBookingSuccess] = useState<boolean>(false);
+  const [orderId, setOrderId] = useState<string>('');
   
   const handleBooking = (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,16 +46,99 @@ const BookingPage = () => {
       return;
     }
     
-    // In a real app, you would submit to an API here
-    toast({
-      title: "Booking successful!",
-      description: "Your laundry pickup has been scheduled.",
-    });
+    // Generate a mock order ID
+    const mockOrderId = `ORD-${Math.floor(100000 + Math.random() * 900000)}`;
+    setOrderId(mockOrderId);
+    
+    // Set booking success state instead of showing toast
+    setBookingSuccess(true);
   };
   
   const navigateToPreferences = () => {
     setActiveTab('preferences');
   };
+  
+  // Show success page if booking was successful
+  if (bookingSuccess) {
+    return (
+      <PageLayout>
+        <div className="page-container py-20">
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="bg-green-50 rounded-full w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+              <CheckCircle className="h-10 w-10 text-green-500" />
+            </div>
+            
+            <h1 className="text-3xl font-bold text-gray-900 mb-4">
+              Booking Successful!
+            </h1>
+            
+            <p className="text-lg text-gray-700 mb-6">
+              Your laundry pickup has been scheduled. Order ID: <span className="font-medium">{orderId}</span>
+            </p>
+            
+            <div className="bg-gray-50 p-6 rounded-lg mb-8">
+              <div className="grid grid-cols-2 gap-6 text-left">
+                <div>
+                  <p className="text-sm text-gray-500">Service Type</p>
+                  <p className="font-medium">{serviceType === 'wash' 
+                    ? 'Wash' 
+                    : serviceType === 'wash-iron' 
+                    ? 'Wash & Iron' 
+                    : serviceType === 'dry-cleaning' 
+                    ? 'Dry Cleaning' 
+                    : serviceType === 'ironing' 
+                    ? 'Ironing' 
+                    : 'Duvets & Bulky Items'}</p>
+                </div>
+                
+                <div>
+                  <p className="text-sm text-gray-500">Pickup Date</p>
+                  <p className="font-medium">{date ? new Date(date).toLocaleDateString() : 'Not specified'}</p>
+                </div>
+                
+                <div>
+                  <p className="text-sm text-gray-500">Pickup Time</p>
+                  <p className="font-medium">
+                    {timeSlot === 'morning' 
+                      ? 'Morning (8am - 12pm)' 
+                      : timeSlot === 'afternoon' 
+                      ? 'Afternoon (12pm - 4pm)' 
+                      : 'Evening (4pm - 8pm)'}
+                  </p>
+                </div>
+                
+                <div>
+                  <p className="text-sm text-gray-500">Estimated Weight</p>
+                  <p className="font-medium">
+                    {estimatedWeight === '5-10' 
+                      ? 'Small Load (5-10 kg)' 
+                      : estimatedWeight === '10-15' 
+                      ? 'Medium Load (10-15 kg)' 
+                      : 'Large Load (15+ kg)'}
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link to="/">
+                <Button variant="outline" className="w-full sm:w-auto">
+                  <Home className="mr-2 h-4 w-4" />
+                  Back to Homepage
+                </Button>
+              </Link>
+              <Link to={`/tracking?order=${orderId}`}>
+                <Button className="w-full sm:w-auto">
+                  <PackageOpen className="mr-2 h-4 w-4" />
+                  Track Your Order
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </PageLayout>
+    );
+  }
   
   return (
     <PageLayout>
