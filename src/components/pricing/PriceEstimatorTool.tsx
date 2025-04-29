@@ -398,8 +398,8 @@ const PriceEstimatorTool = () => {
           </Card>
 
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid grid-cols-2 md:grid-cols-3 mb-6">
-              {laundryCategories.map(category => <TabsTrigger key={category.id} value={category.id} className="md:text-sm text-xs my-[8px] py-[3px]">
+            <TabsList className="grid grid-cols-2 md:grid-cols-3 mb-28">
+              {laundryCategories.map(category => <TabsTrigger key={category.id} value={category.id} className="md:text-sm my-[8px] py-[3px] text-sm px-0 mx-0">
                   {category.name}
                 </TabsTrigger>)}
             </TabsList>
