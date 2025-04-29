@@ -30,9 +30,6 @@ const Header = () => {
           <Link to="/price-estimator" className="text-gray-700 hover:text-primary transition-colors">
             Price Estimator
           </Link>
-          <Link to="/booking" className="text-gray-700 hover:text-primary transition-colors">
-            Book Now
-          </Link>
           <Link to="/faq" className="text-gray-700 hover:text-primary transition-colors">
             FAQ
           </Link>
