@@ -17,6 +17,7 @@ const BookingPage = () => {
   const [estimatedWeight, setEstimatedWeight] = useState<string>('10-15');
   const [preferenceHangDry, setPreferenceHangDry] = useState<boolean>(false);
   const [preferenceFragranceFree, setPreferenceFragranceFree] = useState<boolean>(false);
+  const [activeTab, setActiveTab] = useState<string>('pickup');
   
   const handleBooking = (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,6 +48,10 @@ const BookingPage = () => {
     });
   };
   
+  const navigateToPreferences = () => {
+    setActiveTab('preferences');
+  };
+  
   return (
     <PageLayout>
       <div className="bg-primary bg-opacity-5 py-12">
@@ -61,7 +66,7 @@ const BookingPage = () => {
       </div>
       
       <div className="page-container py-12">
-        <Tabs defaultValue="pickup" className="max-w-3xl mx-auto">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="max-w-3xl mx-auto">
           <TabsList className="grid w-full grid-cols-2 mb-8">
             <TabsTrigger value="pickup">Pickup Details</TabsTrigger>
             <TabsTrigger value="preferences">Preferences</TabsTrigger>
@@ -173,12 +178,7 @@ const BookingPage = () => {
                 </div>
                 
                 <div className="flex justify-end mt-8">
-                  <Button type="button" onClick={() => {
-                    const preferencesTab = document.querySelector('[data-value="preferences"]');
-                    if (preferencesTab && preferencesTab instanceof HTMLElement) {
-                      preferencesTab.click();
-                    }
-                  }}>
+                  <Button type="button" onClick={navigateToPreferences}>
                     Next: Preferences
                   </Button>
                 </div>
