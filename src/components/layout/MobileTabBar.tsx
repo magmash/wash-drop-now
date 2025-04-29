@@ -1,8 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Package, CreditCard, User } from 'lucide-react';
-import { Button } from "@/components/ui/button";
+import { Home, Package, CreditCard, User, Laundry } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { useLocation } from 'react-router-dom';
 
@@ -37,6 +36,13 @@ const MobileTabBar = () => {
           <span className="text-xs mt-1">Services</span>
         </Link>
         
+        <Link to="/booking" className="flex flex-col items-center justify-center relative -mt-5">
+          <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center shadow-lg">
+            <Laundry className="h-7 w-7 text-white" />
+          </div>
+          <span className="text-xs mt-1 font-medium">Book</span>
+        </Link>
+        
         <Link to="/pricing" className="flex flex-col items-center justify-center">
           <div className={cn(
             "p-1 rounded-full",
@@ -55,12 +61,6 @@ const MobileTabBar = () => {
             <User className="h-5 w-5" />
           </div>
           <span className="text-xs mt-1">Account</span>
-        </Link>
-        
-        <Link to="/booking" className="flex flex-col items-center justify-center">
-          <Button size="sm" className="h-auto py-1 px-2 text-xs w-full">
-            Book Now
-          </Button>
         </Link>
       </div>
     </div>
