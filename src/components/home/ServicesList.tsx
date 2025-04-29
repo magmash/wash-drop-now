@@ -2,28 +2,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { WashingMachine, Iron, DryClean, Bed } from 'lucide-react';
 
 const services = [
   {
     id: 1,
-    name: 'Regular Wash & Fold',
-    description: 'Your everyday laundry cleaned, dried, and neatly folded.',
+    name: 'Wash',
+    description: 'For everyday laundry, bedsheets and towels.',
     priceFrom: 'From €1.99/kg',
     image: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80&w=300',
+    icon: WashingMachine,
   },
   {
     id: 2,
-    name: 'Express Service',
-    description: 'Same-day service for urgent laundry needs.',
+    name: 'Wash&Iron',
+    description: 'For everyday laundry that requires ironing',
     priceFrom: 'From €2.99/kg',
     image: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80&w=300',
+    icon: Iron,
   },
   {
     id: 3,
-    name: 'Airbnb Host Package',
-    description: 'Bulk service designed for hosts with multiple properties.',
+    name: 'Dry Cleaning',
+    description: 'For delicate items and fabrics',
     priceFrom: 'From €1.79/kg',
     image: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80&w=300',
+    icon: DryClean,
   }
 ];
 
@@ -43,16 +47,15 @@ const ServicesList = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {services.map((service) => (
             <div key={service.id} className="bg-white rounded-lg overflow-hidden card-shadow">
-              <img 
-                src={service.image} 
-                alt={service.name}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
+              <div className="p-6 flex flex-col items-center">
+                {React.createElement(service.icon, { 
+                  size: 48,
+                  className: "mb-4 text-primary" 
+                })}
                 <h3 className="text-xl font-semibold mb-2">{service.name}</h3>
-                <p className="text-gray-600 mb-3">{service.description}</p>
+                <p className="text-gray-600 mb-3 text-center">{service.description}</p>
                 <p className="text-primary font-semibold mb-4">{service.priceFrom}</p>
-                <Link to="/services">
+                <Link to="/services" className="w-full">
                   <Button variant="outline" className="w-full">
                     Learn More
                   </Button>

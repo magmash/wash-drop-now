@@ -3,12 +3,13 @@ import React from 'react';
 import PageLayout from '@/components/layout/PageLayout';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { WashingMachine, Iron, DryClean, Bed } from 'lucide-react';
 
 const services = [
   {
     id: 1,
-    name: 'Regular Wash & Fold',
-    description: 'Our standard service includes washing, drying, and folding your everyday laundry. Clothes are carefully sorted by color and fabric type to ensure the best care.',
+    name: 'Wash',
+    description: 'For everyday laundry, bedsheets and towels. Our wash service includes thorough cleaning with premium detergents, suitable for all your regular fabrics.',
     features: [
       'Sorted by color and fabric type',
       'Premium detergents and fabric softeners',
@@ -16,46 +17,64 @@ const services = [
       '24-hour turnaround time',
     ],
     priceFrom: '€1.99/kg',
-    suitable: 'Perfect for regular household laundry and daily wear items.'
+    suitable: 'Perfect for regular household laundry and daily wear items.',
+    icon: WashingMachine
   },
   {
     id: 2,
-    name: 'Express Service',
-    description: 'Need your laundry done quickly? Our express service ensures same-day processing when dropped off before noon, or priority next-day service.',
+    name: 'Wash&Iron',
+    description: 'For everyday laundry that requires ironing. Clean and crisp finish for your garments, with professional pressing and folding.',
     features: [
-      'Priority processing',
-      'Same-day service (when booked before noon)',
-      'Premium care with quality detergents',
-      'Delivered in eco-friendly packaging',
+      'Complete washing and drying',
+      'Professional pressing',
+      'Garments hung or folded as required',
+      '48-hour standard service',
     ],
     priceFrom: '€2.99/kg',
-    suitable: 'Ideal for urgent needs, last-minute plans, or travelers.'
+    suitable: 'Ideal for work attire, formal wear, and household items requiring a crisp finish.',
+    icon: Iron
   },
   {
     id: 3,
-    name: 'Airbnb Host Package',
-    description: 'Designed specifically for Airbnb hosts and vacation rental owners who need regular, reliable service for multiple sets of linens and towels.',
+    name: 'Dry Cleaning',
+    description: 'For delicate items and fabrics that cannot be washed with water. Our specialist service ensures proper care for your valuable garments.',
     features: [
-      'Bulk pricing for multiple items',
-      'Special treatment for linens and towels',
-      'Scheduling that works with guest changeovers',
-      'Optional inventory management',
+      'Eco-friendly solvents',
+      'Specialized stain removal',
+      'Gentle treatment for delicate fabrics',
+      'Professional finishing and packaging',
     ],
     priceFrom: '€1.79/kg',
-    suitable: 'Perfect for hosts managing one or multiple properties.'
+    suitable: 'Perfect for suits, formal dresses, silk, wool, and other delicate fabrics.',
+    icon: DryClean
   },
   {
     id: 4,
-    name: 'Business Traveler Package',
-    description: 'Keep your business attire looking sharp while on the road. We give special attention to your professional wardrobe.',
+    name: 'Ironing',
+    description: 'For items that are already clean but need professional pressing. Perfect crisp finish for your pre-washed garments.',
     features: [
-      'Special care for business attire',
-      'Shirts hung or folded according to preference',
-      'Light pressing included',
-      'Hotel pickup and delivery',
+      'Professional steaming and pressing',
+      'Attention to detail on collars and cuffs',
+      'Proper hanging to minimize creasing',
+      'Express service available',
     ],
     priceFrom: '€2.49/kg',
-    suitable: 'Ideal for business travelers and professionals on the go.'
+    suitable: 'Ideal for pre-washed garments requiring professional finishing.',
+    icon: Iron
+  },
+  {
+    id: 5,
+    name: 'Duvets & Bulky items',
+    description: 'For larger items that require extra care. Specialist cleaning for duvets, comforters, pillows, and other bulky household items.',
+    features: [
+      'Special oversized equipment',
+      'Thorough cleaning and sanitizing',
+      'Gentle drying process',
+      'Proper packaging for storage or use',
+    ],
+    priceFrom: '€14.99/item',
+    suitable: 'Perfect for seasonal bedding, duvets, comforters, pillows, and other large household items.',
+    icon: Bed
   }
 ];
 
@@ -78,7 +97,13 @@ const Services = () => {
           {services.map((service) => (
             <div key={service.id} className="bg-white rounded-lg overflow-hidden border border-gray-100 card-shadow">
               <div className="p-6">
-                <h2 className="text-2xl font-bold mb-3">{service.name}</h2>
+                <div className="flex items-center gap-3 mb-3">
+                  {React.createElement(service.icon, { 
+                    size: 24,
+                    className: "text-primary" 
+                  })}
+                  <h2 className="text-2xl font-bold">{service.name}</h2>
+                </div>
                 <p className="text-gray-600 mb-4">{service.description}</p>
                 <p className="text-xl font-semibold text-primary mb-4">{service.priceFrom}</p>
                 
