@@ -1,7 +1,6 @@
 
 import React from 'react';
 import Header from './Header';
-import Footer from './Footer';
 import MobileTabBar from './MobileTabBar';
 import { useIsMobile } from '@/hooks/use-mobile';
 
@@ -18,7 +17,6 @@ const PageLayout = ({ children }: PageLayoutProps) => {
       <main className={`flex-grow ${isMobile ? 'pb-16' : ''}`}>
         {children}
       </main>
-      <Footer />
       <MobileTabBar />
     </div>
   );
