@@ -505,6 +505,58 @@ const PriceEstimatorTool = () => {
           </Link>
         </div>
       </div>
+
+      {/* Detailed Price Summary for Mobile */}
+      {hasItems && (
+        <div className="mt-8 lg:hidden">
+          <Card>
+            <CardContent className="pt-6">
+              <h2 className="text-lg font-semibold mb-4">Price Summary</h2>
+              
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  {Object.entries(selectedItems).map(([itemId, quantity]) => {
+                    // Find item details
+                    let itemDetails: LaundryItem | undefined;
+                    for (const category of laundryCategories) {
+                      const item = category.items.find(item => item.id === itemId);
+                      if (item) {
+                        itemDetails = item;
+                        break;
+                      }
+                    }
+                    if (!itemDetails) return null;
+                    const itemTotal = itemDetails.price * quantity;
+                    return (
+                      <div key={itemId} className="flex justify-between text-sm">
+                        <div>
+                          <span>{itemDetails.name}</span>
+                          <span className="text-muted-foreground ml-1">×{quantity}</span>
+                        </div>
+                        <span className="font-medium">€{itemTotal.toFixed(2)}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+                
+                <div className="pt-4 border-t">
+                  <div className="flex justify-between font-semibold">
+                    <span>Total ({totalItems} {totalItems === 1 ? 'item' : 'items'})</span>
+                    <span className="text-primary">€{totalPrice.toFixed(2)}</span>
+                  </div>
+                </div>
+                
+                <Link to="/booking" onClick={saveEstimate} className="w-full">
+                  <Button className="w-full gap-2" size="lg">
+                    <span>Proceed to Booking</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      )}
     </div>;
 };
 export default PriceEstimatorTool;
