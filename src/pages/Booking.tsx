@@ -9,14 +9,44 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Checkbox } from '@/components/ui/checkbox';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Calendar } from '@/components/ui/calendar';
-import { CheckCircle, Home, PackageOpen } from 'lucide-react';
+import { CheckCircle, Home, MapPin, PackageOpen, Star } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+
+// Using data from the LaundryPartners component
+const laundryPartners = [
+  {
+    id: 1,
+    name: "CityClean Laundry",
+    location: "Delta City Mall, Podgorica",
+    rating: 4.8,
+  },
+  {
+    id: 2,
+    name: "LaundroMont",
+    location: "Bulevar Džordža Vašingtona, Podgorica",
+    rating: 4.6,
+  },
+  {
+    id: 3,
+    name: "FastWash Podgorica",
+    location: "Mall of Montenegro, Podgorica",
+    rating: 4.9,
+  }
+];
 
 const BookingPage = () => {
   const { toast } = useToast();
   const [date, setDate] = useState<Date | undefined>(undefined);
   const [timeSlot, setTimeSlot] = useState<string>('');
   const [serviceType, setServiceType] = useState<string>('wash');
+  const [laundryPartnerId, setLaundryPartnerId] = useState<string>('auto');
   const [estimatedWeight, setEstimatedWeight] = useState<string>('10-15');
   const [preferenceHangDry, setPreferenceHangDry] = useState<boolean>(false);
   const [preferenceFragranceFree, setPreferenceFragranceFree] = useState<boolean>(false);
@@ -207,6 +237,47 @@ const BookingPage = () => {
                       </Label>
                     </div>
                   </RadioGroup>
+                </div>
+                
+                {/* New Laundry Partner Selection Section */}
+                <div>
+                  <h2 className="text-xl font-bold mb-4">Select Laundry Partner</h2>
+                  <p className="text-gray-600 mb-4">Choose your preferred laundry service provider or let us choose the best one for you.</p>
+                  
+                  <Select value={laundryPartnerId} onValueChange={setLaundryPartnerId}>
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Let the app decide" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="auto">Let the app decide</SelectItem>
+                      {laundryPartners.map((partner) => (
+                        <SelectItem key={partner.id} value={partner.id.toString()}>
+                          {partner.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  
+                  {/* Display selected partner details if one is chosen */}
+                  {laundryPartnerId !== 'auto' && (
+                    <div className="mt-4 p-4 bg-gray-50 rounded-md">
+                      {laundryPartners
+                        .filter(partner => partner.id.toString() === laundryPartnerId)
+                        .map(partner => (
+                          <div key={partner.id} className="flex flex-col">
+                            <h3 className="font-medium text-lg">{partner.name}</h3>
+                            <div className="flex items-center text-gray-600 my-1">
+                              <MapPin className="h-4 w-4 mr-1" />
+                              <span className="text-sm">{partner.location}</span>
+                            </div>
+                            <div className="flex items-center">
+                              <Star className="h-4 w-4 text-yellow-400 mr-1" />
+                              <span className="font-medium">{partner.rating}</span>
+                            </div>
+                          </div>
+                        ))}
+                    </div>
+                  )}
                 </div>
                 
                 <div>
