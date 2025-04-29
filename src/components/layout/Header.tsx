@@ -1,13 +1,11 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Menu, User } from "lucide-react";
-import MobileMenu from './MobileMenu';
+import { User } from "lucide-react";
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const Header = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isMobile = useIsMobile();
   
   return <header className={`${isMobile ? 'bg-white shadow-sm' : 'sticky top-0 z-40 bg-white shadow-sm'}`}>
@@ -47,12 +45,11 @@ const Header = () => {
           </Link>
         </div>
         
-        <button className="md:hidden text-gray-700" onClick={() => setMobileMenuOpen(true)} aria-label="Open menu">
-          <Menu className="h-6 w-6" />
-        </button>
+        <Link to="/account" className="md:hidden text-gray-700">
+          <User className="h-6 w-6" />
+        </Link>
       </div>
-      
-      <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
     </header>;
 };
+
 export default Header;

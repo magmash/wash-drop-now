@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Package, CreditCard, User, Shirt } from 'lucide-react';
+import { Home, Package, CreditCard, Calculator, Shirt } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { useLocation } from 'react-router-dom';
 
@@ -53,14 +53,14 @@ const MobileTabBar = () => {
           <span className="text-xs mt-1">Pricing</span>
         </Link>
         
-        <Link to="/account" className="flex flex-col items-center justify-center">
+        <Link to="/price-estimator" className="flex flex-col items-center justify-center">
           <div className={cn(
             "p-1 rounded-full",
-            isActive('/account') ? "text-primary" : "text-gray-600"
+            isActive('/price-estimator') ? "text-primary" : "text-gray-600"
           )}>
-            <User className="h-5 w-5" />
+            <Calculator className="h-5 w-5" />
           </div>
-          <span className="text-xs mt-1">Account</span>
+          <span className="text-xs mt-1">Estimator</span>
         </Link>
       </div>
     </div>
