@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { Calculator } from 'lucide-react';
 
 const CTASection = () => {
   return (
@@ -21,8 +22,9 @@ const CTASection = () => {
               </Button>
             </Link>
             <Link to="/price-estimator">
-              <Button variant="outline" className="w-full sm:w-auto text-base">
-                Estimate Your Cost
+              <Button variant="outline" className="w-full sm:w-auto text-base gap-2">
+                <Calculator className="h-4 w-4" />
+                <span>Estimate Your Cost</span>
               </Button>
             </Link>
           </div>
