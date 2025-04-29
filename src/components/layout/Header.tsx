@@ -1,23 +1,15 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Menu, User } from "lucide-react";
 import MobileMenu from './MobileMenu';
-
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
-  return (
-    <header className="sticky top-0 z-40 bg-white shadow-sm">
+  return <header className="sticky top-0 z-40 bg-white shadow-sm">
       <div className="page-container flex justify-between items-center h-16">
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
-            <img 
-              src="/lovable-uploads/b0b1b295-ef34-4ebd-a664-a6f5fee9513f.png" 
-              alt="SwiftWash Logo" 
-              className="h-8" 
-            />
+            <img src="/lovable-uploads/b0b1b295-ef34-4ebd-a664-a6f5fee9513f.png" alt="SwiftWash Logo" className="h-12" />
           </Link>
         </div>
         
@@ -50,18 +42,12 @@ const Header = () => {
           </Link>
         </div>
         
-        <button 
-          className="md:hidden text-gray-700" 
-          onClick={() => setMobileMenuOpen(true)}
-          aria-label="Open menu"
-        >
+        <button className="md:hidden text-gray-700" onClick={() => setMobileMenuOpen(true)} aria-label="Open menu">
           <Menu className="h-6 w-6" />
         </button>
       </div>
       
       <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
-    </header>
-  );
+    </header>;
 };
-
 export default Header;
