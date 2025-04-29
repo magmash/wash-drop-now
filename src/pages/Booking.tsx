@@ -13,7 +13,7 @@ const BookingPage = () => {
   const { toast } = useToast();
   const [date, setDate] = useState<Date | undefined>(undefined);
   const [timeSlot, setTimeSlot] = useState<string>('');
-  const [serviceType, setServiceType] = useState<string>('regular');
+  const [serviceType, setServiceType] = useState<string>('wash');
   const [estimatedWeight, setEstimatedWeight] = useState<string>('10-15');
   const [preferenceHangDry, setPreferenceHangDry] = useState<boolean>(false);
   const [preferenceFragranceFree, setPreferenceFragranceFree] = useState<boolean>(false);
@@ -79,35 +79,43 @@ const BookingPage = () => {
                   <h2 className="text-xl font-bold mb-6">Select Service Type</h2>
                   <RadioGroup value={serviceType} onValueChange={setServiceType} className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="flex items-center space-x-2 border rounded-md p-4 cursor-pointer hover:bg-gray-50">
-                      <RadioGroupItem value="regular" id="regular" />
-                      <Label htmlFor="regular" className="flex flex-col cursor-pointer">
-                        <span className="font-medium">Regular Wash & Fold</span>
-                        <span className="text-sm text-gray-500">24-hour turnaround</span>
+                      <RadioGroupItem value="wash" id="wash" />
+                      <Label htmlFor="wash" className="flex flex-col cursor-pointer">
+                        <span className="font-medium">Wash</span>
+                        <span className="text-sm text-gray-500">For everyday laundry, bedsheets and towels</span>
                         <span className="text-primary font-medium mt-1">€1.99/kg</span>
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2 border rounded-md p-4 cursor-pointer hover:bg-gray-50">
-                      <RadioGroupItem value="express" id="express" />
-                      <Label htmlFor="express" className="flex flex-col cursor-pointer">
-                        <span className="font-medium">Express Service</span>
-                        <span className="text-sm text-gray-500">Same-day when available</span>
+                      <RadioGroupItem value="wash-iron" id="wash-iron" />
+                      <Label htmlFor="wash-iron" className="flex flex-col cursor-pointer">
+                        <span className="font-medium">Wash&Iron</span>
+                        <span className="text-sm text-gray-500">For everyday laundry that requires ironing</span>
                         <span className="text-primary font-medium mt-1">€2.99/kg</span>
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2 border rounded-md p-4 cursor-pointer hover:bg-gray-50">
-                      <RadioGroupItem value="airbnb" id="airbnb" />
-                      <Label htmlFor="airbnb" className="flex flex-col cursor-pointer">
-                        <span className="font-medium">Airbnb Host Package</span>
-                        <span className="text-sm text-gray-500">Ideal for linens & towels</span>
+                      <RadioGroupItem value="dry-cleaning" id="dry-cleaning" />
+                      <Label htmlFor="dry-cleaning" className="flex flex-col cursor-pointer">
+                        <span className="font-medium">Dry Cleaning</span>
+                        <span className="text-sm text-gray-500">For delicate items and fabrics</span>
                         <span className="text-primary font-medium mt-1">€1.79/kg</span>
                       </Label>
                     </div>
                     <div className="flex items-center space-x-2 border rounded-md p-4 cursor-pointer hover:bg-gray-50">
-                      <RadioGroupItem value="business" id="business" />
-                      <Label htmlFor="business" className="flex flex-col cursor-pointer">
-                        <span className="font-medium">Business Traveler</span>
-                        <span className="text-sm text-gray-500">Special care for business attire</span>
+                      <RadioGroupItem value="ironing" id="ironing" />
+                      <Label htmlFor="ironing" className="flex flex-col cursor-pointer">
+                        <span className="font-medium">Ironing</span>
+                        <span className="text-sm text-gray-500">For items that are already clean but need pressing</span>
                         <span className="text-primary font-medium mt-1">€2.49/kg</span>
+                      </Label>
+                    </div>
+                    <div className="flex items-center space-x-2 border rounded-md p-4 cursor-pointer hover:bg-gray-50">
+                      <RadioGroupItem value="duvets-bulky" id="duvets-bulky" />
+                      <Label htmlFor="duvets-bulky" className="flex flex-col cursor-pointer">
+                        <span className="font-medium">Duvets & Bulky items</span>
+                        <span className="text-sm text-gray-500">For larger items that require extra care</span>
+                        <span className="text-primary font-medium mt-1">€14.99/item</span>
                       </Label>
                     </div>
                   </RadioGroup>
