@@ -15,6 +15,7 @@ import FAQ from "./pages/FAQ";
 import Account from "./pages/Account";
 import OrderTracking from "./pages/OrderTracking";
 import NotFound from "./pages/NotFound";
+import PriceEstimator from "./pages/PriceEstimator";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/laundry-services" element={<LaundryServiceList />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/price-estimator" element={<PriceEstimator />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/account" element={<Account />} />
